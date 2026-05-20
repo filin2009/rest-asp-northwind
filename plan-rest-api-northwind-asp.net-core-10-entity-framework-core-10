@@ -1,0 +1,47 @@
+﻿# 🎯 REST-API Сервис Northwind на ASP.NET Core 10 с Entity Framework Core 10
+
+## Технический обзор
+
+Будет создан полнофункциональный REST-API сервис для базы данных Northwind с использованием ASP.NET Core 10 и Entity Framework Core 10. Проект будет включать:
+
+- **14 сущностей** (Categories, Customers, Employees, Orders, Products, Region, Shippers, Suppliers, Territories, EmployeeTerritories, OrderDetails, CustomerDemographics, CustomerCustomerDemo, USStates)
+- **CRUD-эндпоинты** для каждой таблицы (GET, POST, PUT, DELETE)
+- **Entity Framework Core** для ORM с PostgreSQL провайдером
+- **Swagger/OpenAPI** документация
+- **Структурированная архитектура** (Controllers, Services, Models, Data Context)
+- **Обработка ошибок** и валидация данных
+
+### Структура проекта
+```
+rest-asp-northwind/
+├── Models/              # Entity models (generated from DB)
+├── Data/                # DbContext и конфигурация
+├── Controllers/         # API контроллеры (по одному на сущность)
+├── Services/            # Business logic слой (optional)
+├── Migrations/          # EF Core миграции
+├── appsettings.json     # Конфигурация (строка подключения)
+├── Program.cs           # Startup конфигурация
+└── rest-asp-northwind.csproj
+```
+
+## Предусловия
+
+- PostgreSQL БД с импортированной структурой Northwind
+- Visual Studio Community 2026 с установленным .NET 10 SDK
+- PowerShell для выполнения команд
+
+**Ход выполнения**: 0% [░░░░░░░░░░]
+
+**Последнее обновление**: 2026-05-20 14:38:25
+
+## 📝 Этапы планирования
+-  **Создать новый проект ASP.NET Core Web API (C#, .NET 10) — создать решение через Visual Studio с именем `rest-asp-northwind`**
+-  **Установить NuGet пакеты — в Package Manager Console выполнить команды:**
+-  **Скаффолдить модели из БД — выполнить в Package Manager Console:**
+-  **Создать папку `Controllers` — организовать контроллеры для каждой таблицы:**
+-  **Реализовать CRUD-эндпоинты в каждом контроллере — для каждой сущности создать:**
+-  **Настроить `Program.cs` — добавить конфигурацию:**
+-  **Создать файл `appsettings.json` — добавить строку подключения к PostgreSQL БД**
+-  **Запустить приложение — проверить работу API через Swagger UI (https://localhost:5001/swagger)**
+-  **Тестировать CRUD-операции — для каждого эндпоинта выполнить тесты через Swagger или Postman**
+
