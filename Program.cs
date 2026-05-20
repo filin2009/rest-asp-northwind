@@ -18,12 +18,27 @@ if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Northwind API v1");
+        c.RoutePrefix = "swagger";
+    });
+    // Отключить HTTPS редирект в Development для локального тестирования
+}
+else
+{
+    app.UseHttpsRedirection();
 }
 
-app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+// Переадресация с корневого пути на Swagger
+app.MapGet("/", context =>
+{
+    context.Response.Redirect("/swagger/index.html", permanent: false);
+    return Task.CompletedTask;
+});
 
 app.Run();
